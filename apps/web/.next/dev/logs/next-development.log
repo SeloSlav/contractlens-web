@@ -1,5 +1,0 @@
-[00:00:01.692] Server  LOG     ✓ Ready in 1267ms
-[00:00:03.087] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:09.346] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
-[00:00:29.873] Server  ERROR   (node:9916) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
-(Use `node --trace-deprecation ...` to show where the warning was created)

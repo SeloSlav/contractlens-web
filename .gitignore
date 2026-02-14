@@ -12,10 +12,12 @@
 
 # testing
 /coverage
+__pycache__/
+.pytest_cache/
 
-# next.js
-/.next/
-/out/
+# next.js (monorepo: apps/web/.next)
+.next/
+out/
 
 # production
 /build
@@ -40,6 +42,10 @@ yarn-error.log*
 
 # vercel
 .vercel
+
+# turborepo / build caches
+.turbo
+node_modules/.cache
 
 # typescript
 *.tsbuildinfo
