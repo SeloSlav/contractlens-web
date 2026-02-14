@@ -1,0 +1,17 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/api/analyze/route": "/api/analyze",
+  "/api/analyze/stream/route": "/api/analyze/stream",
+  "/api/chat/route": "/api/chat",
+  "/api/docs/[docId]/route": "/api/docs/[docId]",
+  "/api/docs/route": "/api/docs",
+  "/api/feedback/route": "/api/feedback",
+  "/api/ingest/route": "/api/ingest",
+  "/api/runs/route": "/api/runs",
+  "/docs/[docId]/analyze/page": "/docs/[docId]/analyze",
+  "/docs/[docId]/chat/page": "/docs/[docId]/chat",
+  "/docs/[docId]/page": "/docs/[docId]",
+  "/favicon.ico/route": "/favicon.ico",
+  "/page": "/"
+}

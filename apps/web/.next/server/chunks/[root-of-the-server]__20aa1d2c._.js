@@ -1,0 +1,3 @@
+module.exports=[66486,(e,n,t)=>{n.exports=e.x("mongodb-438b504308ffa4be",()=>require("mongodb-438b504308ffa4be"))},29265,e=>{"use strict";var n=e.i(66486);let t=process.env.MONGODB_URI??"mongodb://localhost:27017/contractlens",c=null;async function o(){return(await (c||(c=new n.MongoClient(t).connect()))).db()}async function a(){let e=await o();await e.collection("documents").createIndex({createdAt:-1}),await e.collection("chunks").createIndex({docId:1}),await e.collection("runs").createIndex({docId:1}),await e.collection("feedback").createIndex({runId:1})}e.s(["ensureIndexes",()=>a,"getDb",()=>o])}];
+
+//# sourceMappingURL=%5Broot-of-the-server%5D__20aa1d2c._.js.map

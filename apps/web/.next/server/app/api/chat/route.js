@@ -1,0 +1,11 @@
+var R=require("../../../chunks/[turbopack]_runtime.js")("server/app/api/chat/route.js")
+R.c("server/chunks/[root-of-the-server]__1c41d48b._.js")
+R.c("server/chunks/node_modules_zod_v3_external_d1e61c8a.js")
+R.c("server/chunks/node_modules_formdata-node_lib_esm_File_ccf0a600.js")
+R.c("server/chunks/[root-of-the-server]__8f5ebbc3._.js")
+R.c("server/chunks/[root-of-the-server]__0a9c20b1._.js")
+R.c("server/chunks/_822dad63._.js")
+R.c("server/chunks/node_modules_next_1402a1da._.js")
+R.c("server/chunks/apps_web__next-internal_server_app_api_chat_route_actions_9857e4ba.js")
+R.m(65594)
+module.exports=R.m(65594).exports

@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# ContractLens
 
-## Getting Started
+**AI-powered contract risk scanner** — Upload contracts (PDF, text, or URL), get structured risk findings with citations, and chat with your documents. Built for teams who need to quickly surface clauses worth reviewing.
 
-First, run the development server:
+> **Disclaimer:** ContractLens highlights risk signals and suggests questions for counsel. It does not provide legal advice.
+
+## Features
+
+- **Multi-format ingest** — PDF, plain text, or URL (HTML extraction)
+- **RAG chat** — Ask questions; answers include citations to source chunks
+- **LangGraph analysis** — Structured risk findings (termination, liability, indemnity, etc.) with confidence scores
+- **Evidence panel** — Expand any finding to see cited snippets
+- **Run history & feedback** — Track analyses and rate findings (thumbs up/down)
+
+## Tech Stack
+
+| Layer | Stack |
+|-------|------|
+| Frontend | Next.js 14+ (App Router), TypeScript, Tailwind |
+| API | Next.js API Routes, Zod validation |
+| Worker | Python FastAPI (ingest, chunking, embeddings) |
+| Orchestration | LangGraph, LangChain |
+| Vector DB | ChromaDB |
+| Metadata DB | MongoDB |
+| AI | OpenAI (with abstraction for Azure/Vertex) |
+
+## Quick Start
+
+**Prerequisites:** Node.js 20+, Python 3.11+, Docker
 
 ```bash
+# 1. Start MongoDB + ChromaDB
+docker compose up -d
+
+# 2. Install and run web app
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# 3. Run worker (separate terminal)
+cd apps/worker
+pip install -r requirements.txt
+python -m uvicorn main:app --reload --port 8001
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+**4. Configure env vars** — Copy `apps/web/.env.example` to `apps/web/.env.local` and `apps/worker/.env.example` to `apps/worker/.env`. Add your `OPENAI_API_KEY`.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+**5. Open** http://localhost:3000
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## User Flow
 
-## Learn More
+1. **Upload** — Paste text, enter URL, or upload PDF
+2. **Ingest** — Click "Run Ingest" to chunk, embed, and index
+3. **Chat** — Ask questions; answers cite source chunks
+4. **Analyze** — Run the LangGraph workflow for structured risk findings
+5. **Feedback** — Rate findings to improve future runs
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+contractlens-web/
+├── apps/
+│   ├── web/          # Next.js (pages, API, LangGraph)
+│   └── worker/       # FastAPI ingest (PDF/URL/text → Chroma + Mongo)
+├── packages/
+│   └── shared/       # Zod schemas, provider interface
+├── eval/             # Fixtures + grounding eval script
+├── docs/             # Railway deployment guide
+└── docker-compose.yml
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## API Overview
 
-## Deploy on Vercel
+| Method | Path | Description |
+|--------|------|-------------|
+| POST | `/api/docs` | Create document |
+| GET | `/api/docs` | List documents |
+| POST | `/api/ingest` | Trigger worker ingest |
+| POST | `/api/chat` | RAG chat with citations |
+| POST | `/api/analyze` | Start analysis run |
+| GET | `/api/analyze/stream?runId=` | SSE stream of analysis events |
+| GET | `/api/runs?docId=` | List runs for document |
+| POST | `/api/feedback` | Submit feedback on finding |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Deployment
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+See [docs/RAILWAY.md](docs/RAILWAY.md) for deploying to Railway (web, worker, MongoDB, ChromaDB).
+
+## License
+
+MIT

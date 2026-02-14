@@ -1,0 +1,5 @@
+[00:00:02.079] Server  LOG     ✓ Ready in 1644ms
+[00:00:03.355] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:17.948] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:00:38.400] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[00:08:50.464] Server  ERROR   Worker ingest error: "Internal Server Error"

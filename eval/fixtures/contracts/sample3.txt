@@ -1,0 +1,13 @@
+CONFIDENTIALITY AND NDA
+
+The parties agree to keep confidential all proprietary information disclosed during the term of this Agreement.
+
+1. Definition. "Confidential Information" means any non-public information disclosed by either party.
+
+2. Obligations. Each party shall not disclose Confidential Information to third parties without prior written consent. The obligation survives for three (3) years after termination.
+
+3. Exceptions. Information that is publicly available, independently developed, or rightfully received from another source is not Confidential Information.
+
+4. Return of Materials. Upon termination, each party shall return or destroy all Confidential Information.
+
+5. Injunctive Relief. The parties acknowledge that breach may cause irreparable harm and that injunctive relief may be appropriate.

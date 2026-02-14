@@ -1,0 +1,11 @@
+SERVICE LEVEL AGREEMENT
+
+1. Uptime Commitment. Provider shall use commercially reasonable efforts to achieve 99.5% uptime measured monthly.
+
+2. Exclusions. Scheduled maintenance, force majeure, and Customer-caused outages are excluded from uptime calculations.
+
+3. Credits. If uptime falls below 99.5%, Customer may request a service credit of 10% of the monthly fee. Credits are the sole remedy.
+
+4. Data Privacy. Provider will process Personal Data in accordance with applicable data protection laws. Customer is the data controller.
+
+5. Renewal. This Agreement auto-renews for successive one-year terms unless either party provides 60 days written notice of non-renewal.
