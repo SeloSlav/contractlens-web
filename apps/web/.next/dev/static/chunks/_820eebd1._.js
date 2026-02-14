@@ -33,8 +33,9 @@ function DocActions({ docId, status }) {
                 })
             });
             if (!res.ok) {
-                const data = await res.json();
-                throw new Error(data.error ?? "Ingest failed");
+                const data = await res.json().catch(()=>({}));
+                const msg = data.details ?? data.error ?? "Ingest failed";
+                throw new Error(msg);
             }
             router.refresh();
         } catch (err) {
@@ -53,7 +54,7 @@ function DocActions({ docId, status }) {
                 children: ingesting ? "Ingesting..." : "Run Ingest"
             }, void 0, false, {
                 fileName: "[project]/apps/web/app/docs/[docId]/DocActions.tsx",
-                lineNumber: 40,
+                lineNumber: 41,
                 columnNumber: 9
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -62,7 +63,7 @@ function DocActions({ docId, status }) {
                 children: "Chat"
             }, void 0, false, {
                 fileName: "[project]/apps/web/app/docs/[docId]/DocActions.tsx",
-                lineNumber: 48,
+                lineNumber: 49,
                 columnNumber: 7
             }, this),
             /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$compiled$2f$react$2f$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$client$2f$app$2d$dir$2f$link$2e$js__$5b$app$2d$client$5d$__$28$ecmascript$29$__["default"], {
@@ -71,13 +72,13 @@ function DocActions({ docId, status }) {
                 children: "Analyze"
             }, void 0, false, {
                 fileName: "[project]/apps/web/app/docs/[docId]/DocActions.tsx",
-                lineNumber: 54,
+                lineNumber: 55,
                 columnNumber: 7
             }, this)
         ]
     }, void 0, true, {
         fileName: "[project]/apps/web/app/docs/[docId]/DocActions.tsx",
-        lineNumber: 38,
+        lineNumber: 39,
         columnNumber: 5
     }, this);
 }

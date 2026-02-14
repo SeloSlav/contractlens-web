@@ -23,8 +23,9 @@ export function DocActions({
         body: JSON.stringify({ docId }),
       });
       if (!res.ok) {
-        const data = await res.json();
-        throw new Error(data.error ?? "Ingest failed");
+        const data = await res.json().catch(() => ({}));
+        const msg = data.details ?? data.error ?? "Ingest failed";
+        throw new Error(msg);
       }
       router.refresh();
     } catch (err) {

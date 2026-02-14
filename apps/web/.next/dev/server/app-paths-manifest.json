@@ -1,7 +1,7 @@
 {
-  "/api/docs/route": "app/api/docs/route.js",
+  "/api/chat/route": "app/api/chat/route.js",
   "/api/ingest/route": "app/api/ingest/route.js",
   "/api/runs/route": "app/api/runs/route.js",
-  "/docs/[docId]/page": "app/docs/[docId]/page.js",
-  "/page": "app/page.js"
+  "/docs/[docId]/chat/page": "app/docs/[docId]/chat/page.js",
+  "/docs/[docId]/page": "app/docs/[docId]/page.js"
 }

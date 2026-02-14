@@ -29,8 +29,15 @@ export async function POST(request: NextRequest) {
     if (!res.ok) {
       const err = await res.text();
       console.error("Worker ingest error:", err);
+      let details: string;
+      try {
+        const parsed = JSON.parse(err);
+        details = parsed.detail ?? parsed.error ?? err;
+      } catch {
+        details = err;
+      }
       return NextResponse.json(
-        { error: "Ingest failed", details: err },
+        { error: "Ingest failed", details: typeof details === "string" ? details : JSON.stringify(details) },
         { status: 502 }
       );
     }

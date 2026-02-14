@@ -83,9 +83,16 @@ async function POST(request) {
         if (!res.ok) {
             const err = await res.text();
             console.error("Worker ingest error:", err);
+            let details;
+            try {
+                const parsed = JSON.parse(err);
+                details = parsed.detail ?? parsed.error ?? err;
+            } catch  {
+                details = err;
+            }
             return __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$server$2e$js__$5b$app$2d$route$5d$__$28$ecmascript$29$__["NextResponse"].json({
                 error: "Ingest failed",
-                details: err
+                details: typeof details === "string" ? details : JSON.stringify(details)
             }, {
                 status: 502
             });
